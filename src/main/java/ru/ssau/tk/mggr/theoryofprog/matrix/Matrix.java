@@ -1,4 +1,4 @@
-package ru.ssau.tk.mggr.theoryofprog;
+package ru.ssau.tk.mggr.theoryofprog.matrix;
 
 public class Matrix {
     private double[][] matrix;
