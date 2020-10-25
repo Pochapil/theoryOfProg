@@ -1,6 +1,8 @@
 package ru.ssau.tk.mggr.theoryofprog.matrix;
 
 
+import java.io.*;
+
 public class Matrices {
 
     static Matrix sumMatrix(Matrix first, Matrix second) {
@@ -47,4 +49,42 @@ public class Matrices {
         }
         return result;
     }
+
+    public static void serialize(BufferedOutputStream buffStream, Matrix matrix) throws IOException {
+        ObjectOutputStream outputStream = new ObjectOutputStream(buffStream);
+        outputStream.writeObject(matrix);
+        outputStream.flush();
+    }
+
+    public static Matrix deserialize(BufferedInputStream buffStream) throws IOException, ClassNotFoundException {
+        ObjectInputStream inputStream = new ObjectInputStream(buffStream);
+        return (Matrix) inputStream.readObject();
+    }
+
+    public static void writeMatrix(BufferedOutputStream outputStream, Matrix matrix) throws IOException {
+        DataOutputStream out = new DataOutputStream(outputStream);
+        out.writeInt(matrix.getRows());
+        out.writeInt(matrix.getColumns());
+        for (int i = 0; i < matrix.getRows(); i++) {
+            for (int j = 0; j < matrix.getColumns(); j++) {
+                out.writeDouble(matrix.getAt(i, j));
+            }
+        }
+        out.flush();
+    }
+
+    public static Matrix readMatrix(BufferedInputStream inputStream) throws IOException {
+        DataInputStream in = new DataInputStream(inputStream);
+        int rows = in.readInt();
+        int columns = in.readInt();
+        Matrix matrix = new Matrix(rows, columns);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                matrix.setAt(i, j, in.readDouble());
+            }
+        }
+        return matrix;
+    }
+
+
 }

@@ -1,6 +1,9 @@
 package ru.ssau.tk.mggr.theoryofprog.matrix;
 
-public class Matrix {
+import java.io.Serializable;
+
+public class Matrix implements Serializable {
+    private static final long serialVersionUID = -6673400259686974036L;
     private double[][] matrix;
     private final int rows;
     private final int columns;
