@@ -86,5 +86,12 @@ public class Matrices {
         return matrix;
     }
 
+    public static void serverCalculation(BufferedInputStream in, BufferedOutputStream out) throws IOException {
+        Matrix first = readMatrix(in);
+        Matrix second = readMatrix(in);
+        Matrix result = multiplicationMatrix(first, second);
+        Matrices.writeMatrix(out, result);
+        out.flush();
+    }
 
 }

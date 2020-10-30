@@ -41,4 +41,18 @@ public class Matrix implements Serializable {
     void setAt(int n, int m, double value) {
         matrix[n][m] = value;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder neededString = new StringBuilder();
+        neededString.append(this.getRows()).append(" ").append(this.getColumns()).append("\n");
+        for (int i = 0; i < this.getRows(); i++) {
+            for (int j = 0; j < this.getColumns(); j++) {
+                neededString.append(this.getAt(i, j)).append(" ");
+            }
+            neededString.append("\n");
+        }
+        return neededString.toString();
+    }
+
 }
