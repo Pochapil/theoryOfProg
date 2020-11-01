@@ -1,11 +1,13 @@
 package ru.ssau.tk.mggr.theoryofprog.matrix;
 
 
+import ru.ssau.tk.mggr.theoryofprog.exceptions.MatricesAreIncompatible;
+
 import java.io.*;
 
 public class Matrices {
 
-    static Matrix sumMatrix(Matrix first, Matrix second) {
+    static Matrix sumMatrix(Matrix first, Matrix second) throws MatricesAreIncompatible {
         int rows = first.getRows();
         int columns = first.getColumns();
         if (rows == second.getRows() && columns == second.getColumns()) {
@@ -16,11 +18,10 @@ public class Matrices {
                 }
             }
             return result;
-        }
-        return null;
+        } else throw new MatricesAreIncompatible();
     }
 
-    static Matrix multiplicationMatrix(Matrix first, Matrix second) {
+    static Matrix multiplicationMatrix(Matrix first, Matrix second) throws MatricesAreIncompatible {
         int rows = first.getRows();
         int columns = first.getColumns();
         if (columns == second.getRows()) {
@@ -36,8 +37,7 @@ public class Matrices {
                 }
             }
             return result;
-        }
-        return null;
+        } else throw new MatricesAreIncompatible();
     }
 
     static Matrix multiplicationMatrixAtNumber(Matrix matrix, double number) {
