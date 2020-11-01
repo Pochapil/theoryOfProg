@@ -18,6 +18,18 @@ public class MatricesTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Matrix second = new Matrix(new double[][]{{6.0, 9.0}, {2.0, 1.0}});
+        try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream("secondMatrix.bin"))) {
+            Matrices.writeMatrix(out, second);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Matrix result = new Matrix(new double[][]{{6.0, 9.0}, {2.0, 1.0}});
+        try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream("resultMatrix.bin"))) {
+            Matrices.writeMatrix(out, result);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test

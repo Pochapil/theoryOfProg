@@ -21,8 +21,8 @@ public class SequentialServer {
                 Socket socket = server.accept();
                 System.out.println("Клиент " + number + " подключен");
                 try {
-                    out = new BufferedOutputStream(socket.getOutputStream());
                     in = new BufferedInputStream(socket.getInputStream());
+                    out = new BufferedOutputStream(socket.getOutputStream());
                     Matrices.serverCalculation(in, out);
                     System.out.println("Результат " + number + " отправлен клиенту");
                     number++;
