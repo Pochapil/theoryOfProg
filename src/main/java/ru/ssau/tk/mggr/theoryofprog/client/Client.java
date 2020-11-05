@@ -18,7 +18,8 @@ public class Client {
         try {
             try {
 // адрес - локальный хост, порт - 4004, такой же как у сервера
-                clientSocket = new Socket("localhost", 4004);
+                //clientSocket = new Socket("localhost", 4004);
+                clientSocket = new Socket("localhost",8080);
 // этой строкой мы запрашиваем
 //  у сервера доступ на соединение
                 System.out.println("Вы что-то хотели сказать? Введите это здесь:");
@@ -50,12 +51,11 @@ public class Client {
                 Matrices.writeMatrix(out, second);
                 out.flush();
                 System.out.println("Ждем ответа сервера...");
-
                 try {
                     Matrix result = Matrices.readMatrix(in);
                     System.out.println("результат:");
                     System.out.println(result);
-                    Matrices.writeMatrix(new BufferedOutputStream(new FileOutputStream(resultMatrixName)),result);
+                    Matrices.writeMatrix(new BufferedOutputStream(new FileOutputStream(resultMatrixName)), result);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -69,6 +69,5 @@ public class Client {
         } catch (IOException e) {
             System.err.println(e);
         }
-
     }
 }
