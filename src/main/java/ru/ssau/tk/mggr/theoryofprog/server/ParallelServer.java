@@ -7,8 +7,8 @@ import java.util.LinkedList;
 
 public class ParallelServer {
 
-    private static int number = 1;
     public static final int PORT = 8080;
+    private static int number = 1;
     public static LinkedList<ParallelServerThread> serverList = new LinkedList<>();
 
     // список всех нитей

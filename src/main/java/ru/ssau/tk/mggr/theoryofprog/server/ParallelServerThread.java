@@ -27,7 +27,7 @@ public class ParallelServerThread extends Thread {
         try {
             Matrices.serverCalculation(in, out);
             System.out.println("Результат " + number + " отправлен клиенту");
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Клиент " + number + " завершил работу в связи с ошибкой");
         }
     }

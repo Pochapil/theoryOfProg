@@ -19,7 +19,7 @@ public class Client {
             try {
 // адрес - локальный хост, порт - 4004, такой же как у сервера
                 //clientSocket = new Socket("localhost", 4004);
-                clientSocket = new Socket("localhost",8080);
+                clientSocket = new Socket("localhost", 8080);
 // этой строкой мы запрашиваем
 //  у сервера доступ на соединение
                 System.out.println("Вы что-то хотели сказать? Введите это здесь:");
